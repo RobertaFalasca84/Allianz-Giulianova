@@ -110,10 +110,15 @@
     <div class="contenitore">
         <h1>CONTATTACI</h1>
         <h2 style="color: red;">CONSULENTE ROBERTA FALASCA</h2>
-        <div class="telefono">📞 <a href="tel:3405776311">3405776311</a></div>
+        <div class="telefono">
+            📞 
+            <a href="tel:3405776311">3405776311</a> <!-- Chiamata diretta -->
+            <br><br>
+            <!-- Link per WhatsApp -->
+            <a href="https://wa.me/393405776311?text=Salve,%20vorrei%20prenotare%20un%20appuntamento" target="_blank" class="pulsante">Invia messaggio su WhatsApp</a>
+        </div>
         <h2>OPPURE PRENOTA UN APPUNTAMENTO</h2>
 
-        <!-- FORM CON ID PER JAVASCRIPT -->
         <form id="emailForm">
             <label>Nome: <input type="text" name="nome" id="nome" required></label>
             <label>Cognome: <input type="text" name="cognome" id="cognome" required></label>
@@ -124,7 +129,6 @@
             <button type="submit">Invia</button>
         </form>
 
-        <!-- SCRIPT PER COSTRUIRE MAILTO PERSONALIZZATO -->
         <script>
           document.getElementById('emailForm').addEventListener('submit', function(e) {
             e.preventDefault();
