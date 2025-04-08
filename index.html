@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allianz Italia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('img/sfondo assicurazione.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        #logo {
+            max-width: 100%;
+            height: auto;
+        }
+        h1 {
+            color: #005bac;
+        }
+        .indirizzo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .messaggio {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .button, .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background-color: #005bac;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 24px;
+            font-weight: bold;
+            transition: background 0.3s;
+            height: 120px;
+        }
+        .button:hover, .nav-button:hover {
+            background-color: #003f7f;
+        }
+        .full-width {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(100% - 40px);
+            margin: 15px auto 0 auto;
+            height: 120px;
+            font-size: 24px;
+            background-color: #005bac;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .full-width:hover {
+            background-color: #003f7f;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            .buttons-container {
+                grid-template-columns: 1fr;
+            }
+            .button, .full-width, .nav-button {
+                font-size: 22px;
+                padding: 20px;
+                height: 100px;
+                width: calc(100% - 30px);
+            }
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocalizzazione non supportata dal browser.");
+            }
+        }
+        function showPosition(position) {
+            alert("Latitudine: " + position.coords.latitude + "\nLongitudine: " + position.coords.longitude);
+        }
+    </script>
+</head>
+<body onload="getLocation()">
+    <div class="container">
+        <img id="logo" src="img/Logo Aziendale.png" alt="Logo Aziendale">
+        <p class="indirizzo">ALLIANZ GIULIANOVA 1968 - VIA Trieste, 60 Giulianova(TE)</p>
+        <p class="messaggio">LE MIGLIORI SOLUZIONI ASSICURATIVE PER OGNI VOSTRA ESIGENZA</p>
+        <div class="buttons-container">
+            <a href="mobilita.html" class="button">🚗 Mobilità</a>
+            <a href="casa.html" class="button">🏠 Casa e Patrimonio</a>
+            <a href="salute.html" class="button">🏥 Salute</a>
+            <a href="previdenza.html" class="button">💶 Previdenza</a>
+            <a href="investimenti.html" class="button">📈 Investimenti</a>
+            <a href="impresa.html" class="button">🏭 Impresa</a>
+        </div>
+        <a href="preventivo.html" class="full-width">📄 Richiedi un Preventivo Veicolo</a>
+    </div>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="contatti.html" style="background-color: red; color: white; padding: 30px 60px; font-size: 36px; border-radius: 12px; text-decoration: none; font-weight: bold;">
+        Contattaci
+    </a>
+</div>
+
+</body>
+</html>

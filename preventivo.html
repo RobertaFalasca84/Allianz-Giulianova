@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Richiedi un Preventivo</title>
+    <style>
+        body {
+            background-image: url('img/sfondo assicurazione.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenitore {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'DIN Next LT Pro Bold Condensed', Arial, sans-serif;
+            font-size: 48px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        .pulsante {
+            background-color: #0038A8;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .pulsante:hover {
+            background-color: #002366;
+        }
+
+        form {
+            text-align: left;
+            color: white;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="tel"],
+        input[type="checkbox"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #0038A8;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #002366;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenitore">
+        <h1>Richiedi un Preventivo Veicolo</h1>
+        <form action="mailto:robertafalasca@yahoo.it" method="post" enctype="text/plain">
+            <label>Nome: <input type="text" name="nome" required></label><br>
+            <label>Cognome: <input type="text" name="cognome" required></label><br>
+            <label>Data di nascita: <input type="date" name="data_nascita" required></label><br>
+            <label>Telefono: <input type="tel" name="telefono" required></label><br>
+            <label>Codice Fiscale: <input type="text" name="codice_fiscale" required></label><br>
+            <label>Indirizzo di residenza: <input type="text" name="indirizzo" required></label><br>
+            <label>Numero di targa: <input type="text" name="targa" required></label><br>
+            <label>Tipo di veicolo: <input type="text" name="tipo_veicolo" required></label><br>
+			<label>Note Personali: <input type="text" name="tipo_veicolo" required></label><br>
+			<label>e-mail: <input type="text" name="tipo_veicolo" required></label><br>
+            <label><input type="checkbox" name="privacy" required> Accetto la normativa sulla privacy(ai sensi ai sensi del Decreto Legislativo 196/2003, coordinato con il Decreto Legislativo 101/2018, e dell'art. 13 del GDPR Regolamento UE 2016/679)</label><br>
+            <button type="submit">Invia</button>
+        </form>
+        <a href="index.html" class="pulsante">Home</a>
+    </div>
+</body>
+</html>
