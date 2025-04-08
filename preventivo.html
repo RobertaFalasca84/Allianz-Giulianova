@@ -103,6 +103,21 @@
             <label><input type="checkbox" name="privacy" required> Accetto la normativa sulla privacy(ai sensi ai sensi del Decreto Legislativo 196/2003, coordinato con il Decreto Legislativo 101/2018, e dell'art. 13 del GDPR Regolamento UE 2016/679)</label><br>
             <button type="submit">Invia</button>
         </form>
+	    <script>
+  document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // blocca l'invio standard
+
+    const nome = document.getElementById('nome').value.trim();
+    const cognome = document.getElementById('cognome').value.trim();
+    const numero di targa = document.getElementById('numero di targa').value.trim();
+	  
+    const oggetto = encodeURIComponent(`Richiesta preventivo - ${nome} ${cognome} ${Numero di targa}`);
+    const corpo = encodeURIComponent(`Nome: ${nome}\nCognome: ${cognome}`);
+    const mailtoLink = `mailto:robertafalasca@yahoo.it?subject=${oggetto}&body=${corpo}`;
+
+    window.location.href = mailtoLink;
+  });
+</script>
         <a href="index.html" class="pulsante">Home</a>
     </div>
 </body>
