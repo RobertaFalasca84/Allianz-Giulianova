@@ -29,6 +29,7 @@
     }
 
     h1 {
+      font-family: 'DIN Next LT Pro Bold Condensed', Arial, sans-serif;
       font-size: 48px;
       color: #FFFFFF;
       margin-bottom: 20px;
@@ -62,7 +63,6 @@
     input[type="text"],
     input[type="date"],
     input[type="tel"],
-    input[type="email"],
     input[type="checkbox"] {
       width: 100%;
       padding: 8px;
@@ -90,27 +90,28 @@
   <div class="contenitore">
     <h1>Richiedi un Preventivo Veicolo</h1>
     <form id="emailForm">
-      <label>Nome: <input type="text" id="nome" name="nome" required></label>
-      <label>Cognome: <input type="text" id="cognome" name="cognome" required></label>
-      <label>Data di nascita: <input type="date" id="data_nascita" name="data_nascita" required></label>
-      <label>Telefono: <input type="tel" id="telefono" name="telefono" required></label>
-      <label>Codice Fiscale: <input type="text" id="codice_fiscale" name="codice_fiscale" required></label>
-      <label>Indirizzo di residenza: <input type="text" id="indirizzo" name="indirizzo" required></label>
-      <label>Numero di targa: <input type="text" id="targa" name="targa" required></label>
-      <label>Tipo di veicolo: <input type="text" id="tipo_veicolo" name="tipo_veicolo" required></label>
-      <label>Note personali: <input type="text" id="note" name="note"></label>
-      <label>E-mail: <input type="email" id="email" name="email" required></label>
-      <label><input type="checkbox" name="privacy" required> Accetto la normativa sulla privacy (ai sensi del D.Lgs. 196/2003, 101/2018 e art. 13 GDPR Reg. UE 2016/679)</label>
+      <label>Nome: <input type="text" name="nome" id="nome" required></label>
+      <label>Cognome: <input type="text" name="cognome" id="cognome" required></label>
+      <label>Data di nascita: <input type="date" name="data_nascita" id="data_nascita" required></label>
+      <label>Telefono: <input type="tel" name="telefono" id="telefono" required></label>
+      <label>Codice Fiscale: <input type="text" name="codice_fiscale" id="codice_fiscale" required></label>
+      <label>Indirizzo di residenza: <input type="text" name="indirizzo" id="indirizzo" required></label>
+      <label>Numero di targa: <input type="text" name="targa" id="targa" required></label>
+      <label>Tipo di veicolo: <input type="text" name="tipo_veicolo" id="tipo_veicolo" required></label>
+      <label>Note Personali: <input type="text" name="note" id="note"></label>
+      <label>Email: <input type="text" name="email" id="email"></label>
+      <label><input type="checkbox" name="privacy" required> Accetto la normativa sulla privacy</label>
       <button type="submit">Invia</button>
     </form>
 
     <script>
-      document.getElementById('emailForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+      document.getElementById('emailForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // blocca l'invio standard
 
+        // Prendi i valori dai campi
         const nome = document.getElementById('nome').value.trim();
         const cognome = document.getElementById('cognome').value.trim();
-        const dataNascita = document.getElementById('data_nascita').value;
+        const dataNascita = document.getElementById('data_nascita').value.trim();
         const telefono = document.getElementById('telefono').value.trim();
         const codiceFiscale = document.getElementById('codice_fiscale').value.trim();
         const indirizzo = document.getElementById('indirizzo').value.trim();
@@ -119,11 +120,15 @@
         const note = document.getElementById('note').value.trim();
         const email = document.getElementById('email').value.trim();
 
+        // Compila oggetto
         const oggetto = encodeURIComponent(`Richiesta preventivo - ${nome} ${cognome} - ${targa}`);
+
+        // Corpo dell'email
         const corpo = encodeURIComponent(
-          `Nome: ${nome}\nCognome: ${cognome}\nData di nascita: ${dataNascita}\nTelefono: ${telefono}\nEmail: ${email}\nCodice Fiscale: ${codiceFiscale}\nIndirizzo: ${indirizzo}\nTarga: ${targa}\nTipo veicolo: ${tipoVeicolo}\nNote: ${note}`
+          `Nome: ${nome}\nCognome: ${cognome}\nData di nascita: ${dataNascita}\nTelefono: ${telefono}\nCodice Fiscale: ${codiceFiscale}\nIndirizzo: ${indirizzo}\nTarga: ${targa}\nTipo di veicolo: ${tipoVeicolo}\nNote: ${note}\nEmail: ${email}`
         );
 
+        // Link mailto
         const mailtoLink = `mailto:robertafalasca@yahoo.it?subject=${oggetto}&body=${corpo}`;
         window.location.href = mailtoLink;
       });
