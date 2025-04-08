@@ -113,30 +113,35 @@
         <h2 style="color: red;">CONSULENTE ROBERTA FALASCA</h2>
         <div class="telefono">📞 <a href="tel:3405776311">3405776311</a></div>
         <h2>OPPURE PRENOTA UN APPUNTAMENTO</h2>
-       <form action="mailto:robertafalasca@yahoo.it" method="post" enctype="text/plain">
-            <label>Nome: <input type="text" name="nome" required></label>
-            <label>Cognome: <input type="text" name="cognome" required></label>
-            <label>Telefono: <input type="tel" name="telefono" required></label>
-            <label>Data e Ora Appuntamento: <input type="datetime-local" name="appuntamento" required></label>
-            <label>Note aggiuntive: <textarea name="note" rows="4"></textarea></label>
-            <label><input type="checkbox" name="privacy" required> Accetto la normativa sulla privacy (ai sensi del D.Lgs. 196/2003, 101/2018, e art. 13 GDPR Reg. UE 2016/679)</label>
-            <button type="submit">Invia</button>
-        </form>
-        <script>
+       <form id="emailForm">
+    <label>Nome: <input type="text" name="nome" id="nome" required></label>
+    <label>Cognome: <input type="text" name="cognome" id="cognome" required></label>
+    <label>Telefono: <input type="tel" name="telefono" id="telefono" required></label>
+    <label>Data e Ora Appuntamento: <input type="datetime-local" name="appuntamento" id="appuntamento" required></label>
+    <label>Note aggiuntive: <textarea name="note" id="note" rows="4"></textarea></label>
+    <label><input type="checkbox" name="privacy" required> Accetto la normativa sulla privacy</label>
+    <button type="submit">Invia</button>
+</form>
+        <a href="index.html" class="pulsante">Home</a>
+    </div>
+    <script>
   document.getElementById('emailForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // blocca l'invio standard
+    e.preventDefault(); // blocca invio standard
 
     const nome = document.getElementById('nome').value.trim();
     const cognome = document.getElementById('cognome').value.trim();
-    
-    const oggetto = encodeURIComponent(`Richiesta appuntamento - ${nome} ${cognome}`);
-    const corpo = encodeURIComponent(`Nome: ${nome}\nCognome: ${cognome}`);
-    const mailtoLink = `mailto:robertafalasca@yahoo.it?subject=${oggetto}&body=${corpo}`;
+    const telefono = document.getElementById('telefono').value.trim();
+    const appuntamento = document.getElementById('appuntamento').value;
+    const note = document.getElementById('note').value.trim();
 
+    const oggetto = encodeURIComponent(`Richiesta appuntamento - ${nome} ${cognome}`);
+    const corpo = encodeURIComponent(
+      `Nome: ${nome}\nCognome: ${cognome}\nTelefono: ${telefono}\nData e Ora Appuntamento: ${appuntamento}\nNote: ${note}`
+    );
+
+    const mailtoLink = `mailto:robertafalasca@yahoo.it?subject=${oggetto}&body=${corpo}`;
     window.location.href = mailtoLink;
   });
 </script>
-        <a href="index.html" class="pulsante">Home</a>
-    </div>
 </body>
 </html>
